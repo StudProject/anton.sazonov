@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Flappy Bird: Файл Source.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="bird.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Flappy Bird
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл Source.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;windows.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;tchar.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;Windowsx.h&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;conio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="_model_8h_source.html">Model.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:aed9ea78689ecce0b7264c02c7f8a9a54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#aed9ea78689ecce0b7264c02c7f8a9a54">G</a>&#160;&#160;&#160;250;</td></tr>
+<tr class="separator:aed9ea78689ecce0b7264c02c7f8a9a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67e4276c7c54d764e11fb72a81def2bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a67e4276c7c54d764e11fb72a81def2bf">TUBE_COUNT</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a67e4276c7c54d764e11fb72a81def2bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of simultaneously generating tubes.  <a href="#a67e4276c7c54d764e11fb72a81def2bf">Подробнее...</a><br /></td></tr>
+<tr class="separator:a67e4276c7c54d764e11fb72a81def2bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a498d9f026138406895e9a34b504ac6a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a498d9f026138406895e9a34b504ac6a6">WINDOW_WIDTH</a>&#160;&#160;&#160;800</td></tr>
+<tr class="memdesc:a498d9f026138406895e9a34b504ac6a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">width window  <a href="#a498d9f026138406895e9a34b504ac6a6">Подробнее...</a><br /></td></tr>
+<tr class="separator:a498d9f026138406895e9a34b504ac6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5473cf64fa979b48335079c99532e243"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a5473cf64fa979b48335079c99532e243">WINDOW_HEIGHT</a>&#160;&#160;&#160;600</td></tr>
+<tr class="memdesc:a5473cf64fa979b48335079c99532e243"><td class="mdescLeft">&#160;</td><td class="mdescRight">heigt window  <a href="#a5473cf64fa979b48335079c99532e243">Подробнее...</a><br /></td></tr>
+<tr class="separator:a5473cf64fa979b48335079c99532e243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a30a1e3b0304f1b083637664cbda94e72"><td class="memItemLeft" align="right" valign="top">LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a30a1e3b0304f1b083637664cbda94e72">WndProc</a> (HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)</td></tr>
+<tr class="memdesc:a30a1e3b0304f1b083637664cbda94e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is responsible for drawing birds, pipes, background playing field and shows all the text in the game. As it prescribe management in our game. For control of the game and drawing the background playing field meets the code.  <a href="#a30a1e3b0304f1b083637664cbda94e72">Подробнее...</a><br /></td></tr>
+<tr class="separator:a30a1e3b0304f1b083637664cbda94e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c2335e6df73b1864dd7563f6810caa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a21c2335e6df73b1864dd7563f6810caa">DoPhysics</a> (ULONGLONG dT)</td></tr>
+<tr class="memdesc:a21c2335e6df73b1864dd7563f6810caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function void DoPhysics responsible for all of physics in the game. In this function implements the birds position on the playing field, check with birds touch the pipe, restart the game, adding points with the passage of a bird pipes.  <a href="#a21c2335e6df73b1864dd7563f6810caa">Подробнее...</a><br /></td></tr>
+<tr class="separator:a21c2335e6df73b1864dd7563f6810caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ecb4242527b80e76b5e28209f67d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a93ecb4242527b80e76b5e28209f67d2d">StartGame</a> ()</td></tr>
+<tr class="memdesc:a93ecb4242527b80e76b5e28209f67d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">function void StartGame () is designed for the beginning of the start of the game. This function is implemented in the field of generation of pipes through certain period of time The function code is as follows:  <a href="#a93ecb4242527b80e76b5e28209f67d2d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a93ecb4242527b80e76b5e28209f67d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a661c2abc03926acfaeb93b4ae7db4943"><td class="memItemLeft" align="right" valign="top">int WINAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a661c2abc03926acfaeb93b4ae7db4943">WinMain</a> (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)</td></tr>
+<tr class="separator:a661c2abc03926acfaeb93b4ae7db4943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:a9fc5abab889d6fd98fcc0efdc177bd7e"><td class="memItemLeft" align="right" valign="top">HBITMAP&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a9fc5abab889d6fd98fcc0efdc177bd7e">hBitmap</a> = NULL</td></tr>
+<tr class="separator:a9fc5abab889d6fd98fcc0efdc177bd7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44f41244c97693b2fbd5244bcb1e86ec"><td class="memItemLeft" align="right" valign="top">HINSTANCE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a44f41244c97693b2fbd5244bcb1e86ec">hInst</a></td></tr>
+<tr class="separator:a44f41244c97693b2fbd5244bcb1e86ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20c880ea5b4880bfffc90e23c3acfb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#ac20c880ea5b4880bfffc90e23c3acfb6">GameOver</a> = 0</td></tr>
+<tr class="separator:ac20c880ea5b4880bfffc90e23c3acfb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66076fd4c94f1ef66bb0256b653cf37f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a66076fd4c94f1ef66bb0256b653cf37f">pause</a> = false</td></tr>
+<tr class="separator:a66076fd4c94f1ef66bb0256b653cf37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533391314665d6bf1b5575e9a9cd8552"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a533391314665d6bf1b5575e9a9cd8552">p</a> = 0</td></tr>
+<tr class="separator:a533391314665d6bf1b5575e9a9cd8552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8accc54acdf1feb2376dd92f1c4f559"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#af8accc54acdf1feb2376dd92f1c4f559">Score</a> = 0</td></tr>
+<tr class="separator:af8accc54acdf1feb2376dd92f1c4f559"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef160b7437d94056f1dc59646cd5b87d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#aef160b7437d94056f1dc59646cd5b87d">score</a></td></tr>
+<tr class="separator:aef160b7437d94056f1dc59646cd5b87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6077dc61b0e39a7761468f61927883a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#ab6077dc61b0e39a7761468f61927883a">tmpX</a> = 0</td></tr>
+<tr class="separator:ab6077dc61b0e39a7761468f61927883a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b3b48d8f4c2a460738b2b552887217"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a72b3b48d8f4c2a460738b2b552887217">tmpY</a> = 0</td></tr>
+<tr class="separator:a72b3b48d8f4c2a460738b2b552887217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3092c619f7e5bd575e640883217716e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#ab3092c619f7e5bd575e640883217716e">tmpV</a> = 0</td></tr>
+<tr class="separator:ab3092c619f7e5bd575e640883217716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab70981b5f674c2be752ba5ff557232d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#ab70981b5f674c2be752ba5ff557232d6">tmpScore</a> = 0</td></tr>
+<tr class="separator:ab70981b5f674c2be752ba5ff557232d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dfe44682afe045241354a51b06b4813"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a6dfe44682afe045241354a51b06b4813">tmpTX</a> [<a class="el" href="_source_8cpp.html#a67e4276c7c54d764e11fb72a81def2bf">TUBE_COUNT</a>]</td></tr>
+<tr class="separator:a6dfe44682afe045241354a51b06b4813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996a4c8c79b6f5f62dfa522a2586bacb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a996a4c8c79b6f5f62dfa522a2586bacb">tmpTY</a> [<a class="el" href="_source_8cpp.html#a67e4276c7c54d764e11fb72a81def2bf">TUBE_COUNT</a>]</td></tr>
+<tr class="separator:a996a4c8c79b6f5f62dfa522a2586bacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7e863becac1125b2d57ce301971c28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t_tube.html">TTube</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#a2e7e863becac1125b2d57ce301971c28">tubes</a> [<a class="el" href="_source_8cpp.html#a67e4276c7c54d764e11fb72a81def2bf">TUBE_COUNT</a>]</td></tr>
+<tr class="separator:a2e7e863becac1125b2d57ce301971c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Макросы</h2>
+<a class="anchor" id="aed9ea78689ecce0b7264c02c7f8a9a54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define G&#160;&#160;&#160;250;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a67e4276c7c54d764e11fb72a81def2bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TUBE_COUNT&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of simultaneously generating tubes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5473cf64fa979b48335079c99532e243"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOW_HEIGHT&#160;&#160;&#160;600</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>heigt window </p>
+
+</div>
+</div>
+<a class="anchor" id="a498d9f026138406895e9a34b504ac6a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WINDOW_WIDTH&#160;&#160;&#160;800</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>width window </p>
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a class="anchor" id="a21c2335e6df73b1864dd7563f6810caa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DoPhysics </td>
+          <td>(</td>
+          <td class="paramtype">ULONGLONG&#160;</td>
+          <td class="paramname"><em>dT</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function void DoPhysics responsible for all of physics in the game. In this function implements the birds position on the playing field, check with birds touch the pipe, restart the game, adding points with the passage of a bird pipes. </p>
+<p>While the bird touched the brink condition adds to the points each time another point, the condition is satisfied until the end of the game lies, that is, until the bird has not touched one of the faces. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;if (GameOver == 0) </div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;{Score ++;}</div></div><!-- fragment --><p>The condition is responsible for checking touch bird horizontal edge. If the bird has touched the brink of the condition is that game over. The process of the game is stopped. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;if (((BIRD_SPOS - BIRD_SIZE) &lt;(tubes [i] .X + tubes [i] .r)) &amp;&amp; ((BIRD_SPOS + BIRD_SIZE)&gt; (tubes [i] .X - tubes [i] .r)))</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;{</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;if (((tubes [i] .Y + tubes [i] .r! &lt;ch.y - BIRD_SIZE) &amp;&amp; (tubes [i] .Y - tubes [i] .r + GAP_SIZE&gt; ch.y + BIRD_SIZE)) )</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;GameOver = 1;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;if ((tubes [i] .X &lt;0))</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;tubes [i] = CreateTube (WINDOW_WIDTH);</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div></div><!-- fragment --><p> The condition is responsible for checking touch bird vertical face. If the bird has touched the brink of the condition is that game over. The process of the game is stopped. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;if ((WINDOW_HEIGHT - 5 &lt; ch.y - BIRD_SIZE) &amp;&amp; (ch.y - BIRD_SIZE &lt; WINDOW_HEIGHT))</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;{</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;if ((tubes[i].X &lt; ch.x) &amp;&amp; (ch.x &lt; tubes[i].X))</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;GameOver = 1;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div></div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="a93ecb4242527b80e76b5e28209f67d2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StartGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function void StartGame () is designed for the beginning of the start of the game. This function is implemented in the field of generation of pipes through certain period of time The function code is as follows: </p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;void StartGame ()</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;{</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;srand (GetTickCount ());</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;for (int i = 0; i &lt;TUBE_COUNT; i ++)</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;tubes [i] = CreateTube (i * (WINDOW_WIDTH / TUBE_COUNT) + WINDOW_WIDTH);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div></div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="a661c2abc03926acfaeb93b4ae7db4943"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WINAPI WinMain </td>
+          <td>(</td>
+          <td class="paramtype">HINSTANCE&#160;</td>
+          <td class="paramname"><em>hInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HINSTANCE&#160;</td>
+          <td class="paramname"><em>hPrevInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPSTR&#160;</td>
+          <td class="paramname"><em>lpCmdLine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nCmdShow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a30a1e3b0304f1b083637664cbda94e72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LRESULT CALLBACK WndProc </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hWnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WPARAM&#160;</td>
+          <td class="paramname"><em>wParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPARAM&#160;</td>
+          <td class="paramname"><em>lParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is responsible for drawing birds, pipes, background playing field and shows all the text in the game. As it prescribe management in our game. For control of the game and drawing the background playing field meets the code. </p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;switch (message)</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;   {</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;   case WM_CREATE: //load picture on background </div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;       hBitmap = (HBITMAP)LoadImage(hInst, L&quot;1.bmp&quot;, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;       break;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;   case WM_KEYDOWN:</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;       switch (wParam)</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;       {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;       case &#39;R&#39;: //Restart game</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;       ch.y=100;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;       dX=-150;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      for (int i = 0; i&lt;TUBE_COUNT; i++)</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;       {tubes[i] = CreateTube(i*(WINDOW_WIDTH / TUBE_COUNT) + WINDOW_WIDTH);}</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;       Score=0;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;       GameOver=0;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;       break;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;       case &#39; &#39;: //Jump birds</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;           ch.vy = -300;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;           break;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;       case &#39;P&#39;:  //Pause game</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;           pause = !(pause);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;           break;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;       case VK_F5: case &#39;S&#39;: //Save coordinate bird and tube</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;           tmpX = ch.X;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;           tmpY = ch.y;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;           tmpV = ch.vy;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;           tmpScore = Score;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;           //</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;           for (int i(0); i &lt; TUBE_COUNT;i++)</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;           { </div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;               tmpTX[i] = tubes[i].X;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;               tmpTY[i] = tubes[i].Y;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;           }           </div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;           break;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;       case VK_F8: case &#39;L&#39;: //Load coordinate bird and tube</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;           ch.X = tmpX;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;           ch.y = tmpY;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;           ch.vy = tmpV;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;           Score = tmpScore;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;           //</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;           for (int i(0); i &lt; TUBE_COUNT; i++)</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;           {</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;               tubes[i].X = tmpTX[i];</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               tubes[i].Y = tmpTY[i];</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;           }</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;           break;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       }</div></div><!-- fragment --><p> This part of the code responsible for drawing tubes and birds. Drawing in WinApi performed using brushes and pens. With feathers, we draw the contours of our pipes and birds. With a brush paints we figure our color. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;case WM_PAINT:</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;        //������ ����� </div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;     RECT rect;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;        BITMAP bitmap;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;        HDC hdcMem;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        HGDIOBJ oldBitmap;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        hdc = BeginPaint(hWnd, &amp;ps);</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        GetClientRect(hWnd, &amp;rect);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        width = rect.right;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        height = rect.bottom;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        backbuffDC = CreateCompatibleDC(hdc);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        backbuffer = CreateCompatibleBitmap(hdc, width, height);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        savedDC = SaveDC(backbuffDC);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        SelectObject(backbuffDC, backbuffer);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        //clear window </div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        hBrush = CreateSolidBrush(RGB(255, 255, 255));</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        FillRect(backbuffDC, &amp;rect, hBrush);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        DeleteObject(hBrush);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        hdcMem = CreateCompatibleDC(hdc);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        oldBitmap = SelectObject(hdcMem, hBitmap);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        //������ background </div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        GetObject(hBitmap, sizeof(bitmap), &amp;bitmap);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        BitBlt(backbuffDC, 0, 0, bitmap.bmWidth, bitmap.bmHeight, hdcMem, 0, 0, SRCCOPY);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        //draw tubes</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            for (int i = 0; i &lt; TUBE_COUNT; i++)</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                hPen = CreatePen(PS_SOLID, 2, RGB(0, 0, 255));</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                hOldPen = (HPEN)SelectObject(backbuffDC, hPen);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                Rectangle(backbuffDC, tubes[i].X - tubes[i].r, -1, tubes[i].X + tubes[i].r, tubes[i].Y + tubes[i].r);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                Rectangle(backbuffDC, tubes[i].X - tubes[i].r, tubes[i].Y - tubes[i].r + GAP_SIZE, tubes[i].X + tubes[i].r, WINDOW_HEIGHT);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                SelectObject(backbuffDC, hOldPen);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                DeleteObject(hPen);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                hPen = CreatePen(PS_SOLID, tubes[i].r, RGB(0, 255, 0));</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                hOldPen = (HPEN)SelectObject(backbuffDC, hPen);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                Rectangle(backbuffDC, tubes[i].X - (tubes[i].r / 2), -1, tubes[i].X + (tubes[i].r / 2), tubes[i].Y + (tubes[i].r / 2));</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                Rectangle(backbuffDC, tubes[i].X - (tubes[i].r / 2), tubes[i].Y - (tubes[i].r / 2) + GAP_SIZE, tubes[i].X + (tubes[i].r / 2), WINDOW_HEIGHT);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                SelectObject(backbuffDC, hOldPen);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                DeleteObject(hPen);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        //draw bird</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        hPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        hOldPen = (HPEN)SelectObject(backbuffDC, hPen);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        Ellipse(backbuffDC, BIRD_SPOS - BIRD_SIZE, ch.y - BIRD_SIZE, BIRD_SPOS + (BIRD_SIZE), ch.y + BIRD_SIZE);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        SelectObject(backbuffDC, hOldPen);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        DeleteObject(hPen);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        hPen = CreatePen(PS_SOLID, BIRD_SIZE, RGB(255, 0, 0));</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        hOldPen = (HPEN)SelectObject(backbuffDC, hPen);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        Ellipse(backbuffDC, BIRD_SPOS - (BIRD_SIZE / 2), ch.y - (BIRD_SIZE / 2), BIRD_SPOS + (BIRD_SIZE / 2), ch.y + (BIRD_SIZE / 2));</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        SelectObject(backbuffDC, hOldPen);</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        DeleteObject(hPen);</div></div><!-- fragment --><p> This part of the code responsible for entering text on a screen. To enter text on the screen creates an array of characters. Using this array, we can create the text. If the number of characters exceeds the specified number of the program will display an error. The text displayed on the screen at a certain place and under certain conditions. The implementation is shown below </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;WCHAR s[100];</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;            </div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;            wsprintf(s, _T(&quot;Press P to get detailed instructions&quot;));</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;            TextOut(backbuffDC, 10, 10, s, wcslen(s));</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        if (pause){</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;            wsprintf(s, _T(&quot;Pause&quot;));</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;            TextOut(backbuffDC, 350, 250, s, wcslen(s));</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;            wsprintf(s, _T(&quot;R - restart the game   &quot;));</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;            TextOut(backbuffDC, 20, 440, s, wcslen(s));</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;              wsprintf(s, _T(&quot;Spacebar - jerk birds&quot;));</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;            TextOut(backbuffDC, 25, 460, s, wcslen(s));</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;              wsprintf(s, _T(&quot;S/ L - save / load the coordinates&quot;));</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            TextOut(backbuffDC, 30, 480, s, wcslen(s));</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;              wsprintf(s, _T(&quot;P - pause&quot;));</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            TextOut(backbuffDC, 35, 500, s, wcslen(s));</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        if (GameOver == 1)</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            wsprintf(s, _T(&quot;Game over! Restart game&quot;));</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            TextOut(backbuffDC, 350, 250, s, wcslen(s));</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            wsprintf(s, _T(&quot;Press R&quot;));</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            TextOut(backbuffDC, 400, 350, s, wcslen(s));</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        if (Score / WINDOW_HEIGHT &gt;= 2)</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            score = ((Score - 25) / 400) - 2;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            wsprintf(s, _T(&quot;Score = %d&quot;),((Score - 20) / 400) - 2);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            TextOut(backbuffDC, 350, 200, s, wcslen(s));</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div></div><!-- fragment --> 
+</div>
+</div>
+<h2 class="groupheader">Переменные</h2>
+<a class="anchor" id="ac20c880ea5b4880bfffc90e23c3acfb6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameOver = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9fc5abab889d6fd98fcc0efdc177bd7e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HBITMAP hBitmap = NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a44f41244c97693b2fbd5244bcb1e86ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HINSTANCE hInst</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a533391314665d6bf1b5575e9a9cd8552"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int p = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a66076fd4c94f1ef66bb0256b653cf37f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool pause = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af8accc54acdf1feb2376dd92f1c4f559"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Score = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aef160b7437d94056f1dc59646cd5b87d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int score</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab70981b5f674c2be752ba5ff557232d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tmpScore = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6dfe44682afe045241354a51b06b4813"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tmpTX[<a class="el" href="_source_8cpp.html#a67e4276c7c54d764e11fb72a81def2bf">TUBE_COUNT</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a996a4c8c79b6f5f62dfa522a2586bacb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tmpTY[<a class="el" href="_source_8cpp.html#a67e4276c7c54d764e11fb72a81def2bf">TUBE_COUNT</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab3092c619f7e5bd575e640883217716e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tmpV = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab6077dc61b0e39a7761468f61927883a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tmpX = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a72b3b48d8f4c2a460738b2b552887217"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tmpY = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2e7e863becac1125b2d57ce301971c28"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t_tube.html">TTube</a> tubes[<a class="el" href="_source_8cpp.html#a67e4276c7c54d764e11fb72a81def2bf">TUBE_COUNT</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>
